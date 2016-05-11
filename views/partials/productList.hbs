@@ -1,0 +1,11 @@
+
+<div class="product-list-container">
+  {{#each products}}
+    <div class="product-item">
+      <img src={{this.image.outfit}} />
+      <h4>{{this.price}}</h4>
+      <h3>{{this.designer}}</h3>
+      <h4>{{this.name}}</h4>
+    </div>
+  {{/each}}
+</div>

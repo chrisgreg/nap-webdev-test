@@ -3,13 +3,19 @@
 var config = require('../config/config')
 var request = require('request-promise');
 
-const PRODUCT_ENDPOINT = (limit, offset) => { return `http://127.0.0.1:3000/api/products?limit=${limit}&offset=${offset}` }
+const PRODUCT_ENDPOINT = (limit, offset) => {
+  return `http://127.0.0.1:3000/api/products?limit=${limit}&offset=${offset}`
+}
 
 var routes = {
     init: function(app) {
 
         // set up listing page
-        app.get('/', function (req, res, next) {
+        app.get('/:page?', function (req, res, next) {
+
+            let limit = 60;
+            let page = req.params.page || 1;
+            let offset = (page * limit) - limit;
 
             let pageDetails = {
                metadata: {
@@ -20,9 +26,16 @@ var routes = {
                template: 'index'
             }
 
-            request(PRODUCT_ENDPOINT(60, 0))
+            request(PRODUCT_ENDPOINT(limit, offset))
               .then((value) => {
-                pageDetails.products = JSON.parse(value).data;
+                const payload = JSON.parse(value);
+                const numberOfPages = Math.ceil(payload.total/limit);
+                const pagination = Array.apply(null, Array(numberOfPages))
+                                    .map((x,i) => { return i + 1; });
+
+                pageDetails.products = payload.data;
+                pageDetails.pageNumber = pagination;
+
                 res.render('index', pageDetails);
               })
               .catch((error) =>

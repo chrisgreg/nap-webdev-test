@@ -22,7 +22,7 @@ var appConfiguration = {
         app.use(sassMiddleware({
           src: config.ROOT + '/stylesheets',
           dest: config.ROOT,
-          debug:true,
+          force: true,
           outputStyle: 'compressed',
           prefix: '/styles'
         }));

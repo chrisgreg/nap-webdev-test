@@ -2,6 +2,13 @@
 <div class="container">
 	<h1 class="center">NAP TECH TEST</h1>
 
+	{{#each pageNumber}}
+		<button>
+			<a href="/{{this}}">
+				{{this}}
+			</a>
+		</button>
+	{{/each}}
 
 	{{> productList}}
 

@@ -1,7 +1,3 @@
-.center {
-  text-align: center;
-}
-
 .pagination {
   display: flex;
   justify-content: flex-end;
@@ -19,9 +15,31 @@
         background: #f2f2f2;
       }
     }
-
   }
 }
+
+@media only screen and (max-width: 736px) {
+    .product-list-container {
+      .product-item {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .expanded {
+      display: flex;
+      justify-content: space-between;
+    }
+}
+
+
+.center {
+  text-align: center;
+}
+
+@media only screen and (min-width: 737px) {
+
+
 
 .product-list-container {
     display: flex;
@@ -69,4 +87,6 @@
 
       }
     }
+}
+
 }

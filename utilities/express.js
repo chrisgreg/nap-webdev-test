@@ -6,7 +6,6 @@ var hbs = require('express-hbs');
 var expressParams = require('express-params');
 
 var sassMiddleware = require('node-sass-middleware');
-var serveStatic = require('serve-static');
 
 var appConfiguration = {
 

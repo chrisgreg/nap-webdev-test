@@ -24,7 +24,7 @@ const PRODUCT_ENDPOINT = (limit, offset) => {
 var routes = {
     init: function(app) {
 
-        // set up listing page
+        // Set up listing page
         app.get('/:page?', function (req, res, next) {
 
             let limit = 60;
@@ -41,18 +41,23 @@ var routes = {
                currentPage: page
             }
 
-
             // Use Cache if it exists
             const cachedContent = cache.get(PAYLOAD_CACHE_KEY(page));
 
             if (cachedContent) {
+              renderCached();
+            } else {
+              renderUncached();
+            }
+
+            function renderCached(){
               logging.info(`${req.connection.remoteAddress}: Using cache for Page ${page}`);
 
               setupPageData(cachedContent);
               res.render('index', pageDetails);
             }
 
-            else {
+            function renderUncached(){
               request(PRODUCT_ENDPOINT(limit, offset))
                 .then((value) => {
                   logging.info(`${req.connection.remoteAddress}: Uncached request for Page ${page}`);
@@ -63,10 +68,11 @@ var routes = {
                 })
                 .catch((error) => {
                   logging.error(`${req.connection.remoteAddress}: ${error}`);
-                  res.render('error', { error })
+                  res.status(500).render('error', { error });
                 });
             }
 
+            // Populate Page Data
             function setupPageData(payload){
               const numberOfPages = Math.ceil(payload.total/limit);
               const pagination = Array.apply(null, Array(numberOfPages))

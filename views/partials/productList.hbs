@@ -2,12 +2,12 @@
 <div class="product-list-container">
   {{#each products}}
     <div class="product-item" id="{{this.id}}">
-      <img src={{this.image.outfit}} />
+      <img class="mainImage" src={{this.image.outfit}} />
 
       <div class="details">
         <h4 class="designer">{{this.designer}}</h3>
         <h5 class="name">{{this.name}}</h5>
-        <h6>{{this.price}}</h6>
+        <h6 class="price">{{this.price}}</h6>
       </div>
     </div>
   {{/each}}

@@ -13,4 +13,3 @@ setUpRoutes.init(app);
 
 app.listen(config.PORT);
 console.log('Service started on port ' + config.PORT );
-

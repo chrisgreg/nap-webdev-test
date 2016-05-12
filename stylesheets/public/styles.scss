@@ -23,12 +23,21 @@
       .product-item {
         width: 100%;
         text-align: center;
+        padding-bottom: 10%;
       }
     }
 
     .expanded {
       display: flex;
       justify-content: space-between;
+
+      .mainImage {
+        margin-left: -40px;
+      }
+    }
+
+    .pagination {
+      justify-content: space-around;
     }
 }
 
@@ -50,8 +59,14 @@
       text-align: left;
       margin: 2% 5%;
       width: 20%;
+      justify-content: center;
+      display: flex;
 
-      img {
+      .details {
+        padding-left: 5%;
+      }
+
+      .mainImage {
         padding-bottom: 10px;
       }
 
@@ -83,6 +98,10 @@
 
         .name {
           font-size: 18px;
+        }
+
+        .price {
+          font-size: 20px;
         }
 
       }

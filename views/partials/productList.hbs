@@ -1,11 +1,14 @@
 
 <div class="product-list-container">
   {{#each products}}
-    <div class="product-item">
+    <div class="product-item" id="{{this.id}}">
       <img src={{this.image.outfit}} />
-      <h4>{{this.price}}</h4>
-      <h3>{{this.designer}}</h3>
-      <h4>{{this.name}}</h4>
+
+      <div class="details">
+        <h4 class="designer">{{this.designer}}</h3>
+        <h5 class="name">{{this.name}}</h5>
+        <h6>{{this.price}}</h6>
+      </div>
     </div>
   {{/each}}
 </div>

@@ -23,7 +23,8 @@ var routes = {
                },
                title: 'NAP Tech Test',
                layout: 'layouts/default',
-               template: 'index'
+               template: 'index',
+               currentPage: page
             }
 
             request(PRODUCT_ENDPOINT(limit, offset))

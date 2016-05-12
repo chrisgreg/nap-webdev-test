@@ -3,8 +3,6 @@ var config = require('../config/config')
 // Mock API using fixture so we're not dependent on network connectivity
 var allProducts = require(config.ROOT +'/fixtures/products.json').data;
 
-
-
 var routes = {
     init: function(app) {
 

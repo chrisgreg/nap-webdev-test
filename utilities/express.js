@@ -27,7 +27,7 @@ var appConfiguration = {
           prefix: '/styles'
         }));
 
-        app.use(express.static(config.ROOT + '/public'));
+        app.use('/public', express.static('public'));
     },
 
 

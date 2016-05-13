@@ -12,8 +12,8 @@ This is a chance for you to show us how you think we should display our products
 ### Product details
     http://127.0.0.1:3000/api/product/$id  
 
-### You might want to include 
- 
+### You might want to include
+
 * Implement pagination/infinite scroll
 * Filters and sorts (eg. lowest price first, select a size)
 * A mix of server and clientside rendering
@@ -43,11 +43,18 @@ $ npm install
 $ node app
 ```
 
+To test the app:
+
+```
+$ npm install
+$ npm test (or $ mocha)
+```
+
 # Apis
 
 ## Products
 
-Returns a list of products. 
+Returns a list of products.
 
 Example:
 
